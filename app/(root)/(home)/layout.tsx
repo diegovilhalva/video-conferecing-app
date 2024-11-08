@@ -16,7 +16,6 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
 
         </section>
       </div>
-      {children}
     </main>
   )
 }
