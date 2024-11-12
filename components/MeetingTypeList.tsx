@@ -95,7 +95,7 @@ const MeetingTypeList = () => {
                 </MeetingModal>
             ) : (
                 <MeetingModal isOpen={meetingState === 'isScheduleMeeting'} onClose={() => setMeetingState(undefined)} title="Meeting created" className="text-center" handleClick={() => {
-                    //navigator.clipboard.writeText(meettingLink)
+                    navigator.clipboard.writeText(meetingLink)
                     toast({ title: 'link copied' })
                 }}
                     image="/icons/checked.svg"
