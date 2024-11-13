@@ -9,6 +9,7 @@ import { useUser } from "@clerk/nextjs"
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk"
 import { useToast } from "@/hooks/use-toast"
 import { Textarea } from "./ui/textarea"
+import { Input } from "./ui/input"
 
 
 const MeetingTypeList = () => {
@@ -104,6 +105,9 @@ const MeetingTypeList = () => {
                 />
             )}
             <MeetingModal isOpen={meetingState === 'isInstantMeeting'} onClose={() => setMeetingState(undefined)} title="Start an Instant Meeting" buttonText="Start Meeting" className="text-center" handleClick={createMeeting} />
+            <MeetingModal isOpen={meetingState === 'isJoiningMeeting'} onClose={() => setMeetingState(undefined)} title="Type the linbk here" buttonText="Join Meeting" className="text-center" handleClick={() => router.push(values.link)} >
+                <Input placeholder="Meeting link"  className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0" onChange={(e) => setValues({...values,link:e.target.value})} />
+            </MeetingModal>
         </section>
     )
 }
